@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react';
+import SingleColor from './SingleColor';
 import Values from 'values.js';
 import './App.css';
 
@@ -27,6 +28,9 @@ function App() {
       <button type="submit">generate</button>
     </section>
     <section>
+    {list.map((color,index) => {
+        return <SingleColor key ={index} index = {index} {...color} hexValue = {color.hex}/>
+    })}
     </section>
   </React.Fragment>;
 }
