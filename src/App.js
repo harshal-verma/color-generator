@@ -4,9 +4,9 @@ import Values from 'values.js';
 import './App.css';
 
 function App() {
-  const [color , setColor] = useState("");
+  const [color , setColor] = useState();
   const [error , setError] = useState(false);
-  const [list , setList] = useState([]);
+  const [list , setList] = useState(new Values('#10b981').all(10));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,13 +21,17 @@ function App() {
 
   return <React.Fragment>
     <section className="container">
-      <h2>color generator</h2>
+      <h2>Color Generator</h2>
       <form onSubmit={handleSubmit}>
-         <input type="text" value={color} onChange={(e) => setColor(e.target.value)}/>
+         <input 
+         className={`${error ? 'error' : null}`}
+         placeholder="#10B981"
+         type="text" 
+         value={color} onChange={(e) => setColor(e.target.value)}/>
+         <button type="submit">Submit</button>
       </form>
-      <button type="submit">generate</button>
     </section>
-    <section>
+    <section className="singleColor-container">
     {list.map((color,index) => {
         return <SingleColor key ={index} index = {index} {...color} hexValue = {color.hex}/>
     })}

@@ -3,7 +3,6 @@ import './App.css';
 
 const SingleColor = ({rgb,index,hexValue,weight}) => {
     const [alert,setAlert] = useState(false);
-    // console.log(hexValue);
     const bgc = rgb.join(',');
     const hexColor = '#' + hexValue;
     console.log(bgc);
@@ -16,17 +15,29 @@ const SingleColor = ({rgb,index,hexValue,weight}) => {
     }, [alert])
 
     return <article 
+        className = {`singleColor ${index > 10 ? 'light-color' : null}`}
         onClick = {() => {
             setAlert(true);
             navigator.clipboard.writeText(hexColor);
         }}
         style={{ 
-        backgroundColor: `rgb(${bgc})`,
-        height: "100px"
+        backgroundColor: `rgb(${bgc})`
     }}>
-      <p>{weight}</p>
-      <p>{hexColor}</p>
-      { alert && <p>copied to clipboard</p>}
+      <p 
+      style={{ 
+        backgroundColor: `rgb(${bgc})`
+    }}
+      className="percent-value">{weight}%</p>
+      <p 
+      style={{ 
+        backgroundColor: `rgb(${bgc})`
+    }}
+      className="color-value">{hexColor}</p>
+      { alert && <p className="alert"
+      style={{ 
+        backgroundColor: `rgb(${bgc})`
+    }}
+      >copied to clipboard</p>}
     </article>
 }
 
