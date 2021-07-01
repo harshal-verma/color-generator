@@ -88,3 +88,18 @@
 .container .error{
   border: 2px solid #991B1B;
 }
+
+/* media queries */
+@media screen and (max-width: 670px){
+  .container{
+    font-size: 1rem;
+    flex-wrap: wrap;
+  }
+  .container h2{
+    margin-bottom: 8px;
+  }
+
+  .container form{
+    width: 90%;
+  }
+}
