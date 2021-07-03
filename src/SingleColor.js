@@ -5,7 +5,6 @@ const SingleColor = ({rgb,index,hexValue,weight}) => {
     const [alert,setAlert] = useState(false);
     const bgc = rgb.join(',');
     const hexColor = '#' + hexValue;
-    console.log(bgc);
    
     useEffect(() => {
        const timeout = setInterval(() => {

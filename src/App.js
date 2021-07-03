@@ -1,10 +1,10 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState } from 'react';
 import SingleColor from './SingleColor';
 import Values from 'values.js';
 import './App.css';
 
 function App() {
-  const [color , setColor] = useState();
+  const [color , setColor] = useState('');
   const [error , setError] = useState(false);
   const [list , setList] = useState(new Values('#10b981').all(10));
 
